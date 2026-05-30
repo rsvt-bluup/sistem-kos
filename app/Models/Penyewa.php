@@ -33,6 +33,6 @@ class Penyewa extends Model
     public function pembayaranTerakhir()
     {
         return $this->hasOne(Pembayaran::class, 'id_penyewa')
-            ->latestOfMany();
+            ->latestOfMany('id_bayar');
     }
 }

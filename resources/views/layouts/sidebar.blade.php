@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('assets/css/layouts.css') }}">
-
 <aside class="left-sidebar" style="top:0; background:#fff;">
 
     <div>
@@ -7,9 +5,7 @@
 
             <a href="{{ route('dashboard') }}"
                 class="text-nowrap logo-img text-decoration-none">
-                <h3 class="fw-bold m-0" style="color: #28557d;">
-                    KosKu
-                </h3>
+                <img src="{{ asset('assets/images/logos/logo-kosku.png') }}" alt="KosKu Logo" style="height: 100px; width: auto; object-fit: contain;">
             </a>
 
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">

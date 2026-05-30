@@ -4,17 +4,11 @@
 
 @section('content')
 
-<style>
-    .card { border-radius: 20px; border: 1px solid rgba(40, 85, 125, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); }
-    .table thead { background-color: #f8fafc; color: #28557d; }
-    .btn-action { padding: 5px 12px; border-radius: 8px; }
-</style>
-
 <div class="container-fluid">
     <div class="card p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="fw-bold" style="color: #28557d;">Data Kamar</h4>
-            <a href="{{ route('kamar.create') }}" class="btn btn-primary" style="background-color: #28557d; border:none;">
+            <h4 class="fw-bold m-0" style="color: #28557d;">Data Kamar</h4>
+            <a href="{{ route('kamar.create') }}" class="btn btn-primary">
                 <i class="ti ti-plus"></i> Tambah Kamar
             </a>
         </div>
@@ -32,12 +26,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($kamars as $kamar)
+                    @forelse($kamars as $kamar)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $kamar->nomor_kamar }}</td>
+                        <td class="fw-semibold">{{ $kamar->nomor_kamar }}</td>
                         <td>{{ $kamar->tipe }}</td>
-                        <td>Rp {{ number_format($kamar->harga, 0, ',', '.') }}</td>
+                        <td class="fw-semibold">Rp {{ number_format($kamar->harga, 0, ',', '.') }}</td>
                         <td>
                             <span class="badge {{ $kamar->status == 'Kosong' ? 'bg-success' : 'bg-warning' }}">
                                 {{ $kamar->status }}
@@ -56,7 +50,11 @@
                             </form>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">Belum ada data kamar.</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

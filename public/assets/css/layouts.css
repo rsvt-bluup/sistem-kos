@@ -1,28 +1,69 @@
 /* AUTH.LOGIN */
 
 .login-page {
-    background: #f4f6f9;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-.container {
+.login-page .container {
     width: 100%;
 }
 
-.card {
+.login-page .card {
     width: 100%;
     max-width: 400px;
-    border-radius: 12px;
-    border: none;
+    border-radius: 20px !important;
+    border: 1px solid rgba(40, 85, 125, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(40, 85, 125, 0.08) !important;
+    background-color: #ffffff;
 }
 
-.input-group-text {
+.login-page .card-body {
+    padding: 36px !important;
+}
+
+.login-page .form-control {
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    font-size: 14px !important;
+}
+
+.login-page .form-control:focus {
+    border-color: #28557d !important;
+    box-shadow: 0 0 0 3px rgba(40, 85, 125, 0.15) !important;
+}
+
+.login-page .input-group-text {
     background: #f8f9fa;
-    border-left: 0;
+    border: 1px solid #cbd5e1 !important;
+    border-left: 0 !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    color: #64748b !important;
+}
+
+.login-page .btn-primary {
+    background-color: #28557d !important;
+    border-color: #28557d !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    box-shadow: 0 4px 12px rgba(40, 85, 125, 0.15) !important;
+    transition: all 0.2s ease !important;
+}
+
+.login-page .btn-primary:hover {
+    background-color: #1e3a5f !important;
+    border-color: #1e3a5f !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(40, 85, 125, 0.2) !important;
 }
 
 /* LAYOUTS.SIDEBAR */
@@ -32,7 +73,10 @@
 }
 
 .brand-logo {
-    padding: 20px;
+    padding: 10px 20px !important;
+    min-height: 90px !important;
+    display: flex;
+    align-items: center;
 }
 
 .sidebar-link {
@@ -93,4 +137,304 @@
     margin: 0;
     border: 0;
     border-top: 4px solid #dee2e6;
+}
+
+/* ==========================================
+   UI/UX PREMIUM OVERHAUL STYLES
+   ========================================== */
+
+/* Custom Card Styling */
+.card-custom, .dashboard-card, .payment-card, .card {
+    border: 1px solid rgba(40, 85, 125, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(40, 85, 125, 0.04) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    background-color: #ffffff;
+}
+
+/* Hover animation for dashboard cards */
+.dashboard-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 15px 35px rgba(40, 85, 125, 0.08) !important;
+}
+
+/* Page Titles */
+.page-title, .dashboard-title {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #1e3a5f !important;
+    letter-spacing: -0.5px;
+}
+
+/* Custom Table Styling */
+.table-custom, .table {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
+.table-custom thead th, .table thead th {
+    background-color: #f8fafc !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    padding: 16px 20px !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    border-top: none !important;
+}
+
+.table-custom tbody td, .table tbody td {
+    padding: 16px 20px !important;
+    font-size: 14px !important;
+    color: #334155 !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: middle !important;
+}
+
+.table-custom tbody tr:hover, .table tbody tr:hover {
+    background-color: #f8fafc !important;
+    transition: background-color 0.2s ease;
+}
+
+/* Responsive Table container styling */
+.table-responsive {
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+/* Custom Badges */
+.badge {
+    padding: 6px 12px !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    border-radius: 30px !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge.bg-success {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+}
+
+.badge.bg-warning {
+    background-color: #fef3c7 !important;
+    color: #b45309 !important;
+}
+
+.badge.bg-danger {
+    background-color: #fee2e2 !important;
+    color: #b91c1c !important;
+}
+
+.badge.bg-info {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+}
+
+/* Action Buttons */
+.btn-action, .btn-sm {
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+    background-color: #28557d !important;
+    border-color: #28557d !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(40, 85, 125, 0.15) !important;
+}
+
+.btn-primary:hover {
+    background-color: #1e3a5f !important;
+    border-color: #1e3a5f !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(40, 85, 125, 0.2) !important;
+}
+
+/* Header customization */
+.app-header {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: none !important;
+}
+
+.header-line {
+    display: none !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Sidebar improvements */
+.sidebar-link {
+    font-weight: 500 !important;
+    color: #475569 !important;
+    margin: 4px 12px !important;
+}
+
+.sidebar-link i {
+    font-size: 18px !important;
+    margin-right: 10px !important;
+    color: #64748b !important;
+    transition: color 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background-color: #f1f5f9 !important;
+    color: #1e3a5f !important;
+}
+
+.sidebar-link:hover i {
+    color: #1e3a5f !important;
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, #28557d, #1e3a5f) !important;
+    box-shadow: 0 4px 12px rgba(40, 85, 125, 0.2) !important;
+}
+
+/* ==========================================
+   GLASSMORPHIC MODAL OVERLAY STYLES
+   ========================================== */
+
+.modal-backdrop-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    background: rgba(15, 23, 42, 0.4) !important;
+    animation: modalFadeIn 0.25s ease;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+    animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.modal-card-header {
+    padding: 24px 28px 20px 28px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+}
+
+.modal-card-title {
+    font-weight: 700;
+    color: #1e3a5f;
+    margin: 0;
+    font-size: 18px;
+    flex-grow: 1;
+}
+
+.modal-close-btn {
+    color: #94a3b8;
+    font-size: 20px;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    color: #475569;
+}
+
+.modal-card-body {
+    padding: 28px;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.form-control, .form-select {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #334155 !important;
+    transition: all 0.2s ease !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #28557d !important;
+    box-shadow: 0 0 0 3px rgba(40, 85, 125, 0.15) !important;
+}
+
+.btn-light-custom {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-light-custom:hover {
+    background: #e2e8f0 !important;
+    color: #334155 !important;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================
+   GLOBAL LAYOUT SPACING FIXES
+   ========================================== */
+
+.body-wrapper-inner {
+    padding-top: 85px !important;
+}
+
+.body-wrapper .container-fluid {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }

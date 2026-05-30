@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('assets/css/layouts.css') }}">
-
 <header class="app-header">
 
     <nav class="navbar navbar-expand-lg navbar-light px-4">
