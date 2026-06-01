@@ -38,9 +38,10 @@
                             </span>
                         </td>
                         <td class="text-center">
-                            <a href="{{ route('kamar.edit', $kamar->id_kamar) }}" class="btn btn-sm btn-info btn-action text-white">
-                                <i class="ti ti-pencil"></i>
+                            <a href="{{ route('kamar.edit', $kamar->id_kamar) }}" class="btn btn-info btn-sm text-white">
+                                <i class="ti ti-pencil"></i> Edit
                             </a>
+
                             <form action="{{ route('kamar.destroy', $kamar->id_kamar) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')

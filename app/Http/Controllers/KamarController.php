@@ -38,14 +38,14 @@ class KamarController extends Controller
         return redirect()->route('kamar.index');
     }
 
-    public function edit($id)
+    public function edit($id_kamar)
     {
-        $kamar = Kamar::findOrFail($id);
+        $kamar = Kamar::findOrFail($id_kamar);
 
         return view('pages.kamar.edit', compact('kamar'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_kamar)
     {
         $request->validate([
             'nomor_kamar' => 'required',
@@ -54,7 +54,7 @@ class KamarController extends Controller
             'status' => 'required',
         ]);
 
-        $kamar = Kamar::findOrFail($id);
+        $kamar = Kamar::findOrFail($id_kamar);
 
         $kamar->update([
             'nomor_kamar' => $request->nomor_kamar,
@@ -66,9 +66,9 @@ class KamarController extends Controller
         return redirect()->route('kamar.index');
     }
 
-    public function destroy($id)
+    public function destroy($id_kamar)
     {
-        $kamar = Kamar::findOrFail($id);
+        $kamar = Kamar::findOrFail($id_kamar);
 
         $kamar->delete();
 

@@ -33,14 +33,14 @@ class PembayaranController extends Controller
             'id_penyewa' => 'required',
             'id_kamar' => 'required',
             'tanggal_bayar' => 'required',
-            'jumlah_bayar' => 'required',
+            'jumlah_bayar' => 'required|numeric',
             'bulan' => 'required',
             'status' => 'required',
             'bukti_bayar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $bukti = $request->file('bukti_bayar')
-                         ->store('bukti_bayar', 'public');
+            ->store('bukti_bayar', 'public');
 
         Pembayaran::create([
             'id_penyewa' => $request->id_penyewa,
@@ -52,7 +52,8 @@ class PembayaranController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('pembayaran.index');
+        return redirect()->route('pembayaran.index')
+            ->with('success', 'Data pembayaran berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -75,9 +76,10 @@ class PembayaranController extends Controller
             'id_penyewa' => 'required',
             'id_kamar' => 'required',
             'tanggal_bayar' => 'required',
-            'jumlah_bayar' => 'required',
+            'jumlah_bayar' => 'required|numeric',
             'bulan' => 'required',
             'status' => 'required',
+            'bukti_bayar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $pembayaran = Pembayaran::findOrFail($id);
@@ -92,18 +94,14 @@ class PembayaranController extends Controller
         ];
 
         if ($request->hasFile('bukti_bayar')) {
-
-            $request->validate([
-                'bukti_bayar' => 'image|mimes:jpg,jpeg,png|max:2048'
-            ]);
-
             $data['bukti_bayar'] = $request->file('bukti_bayar')
-                                           ->store('bukti_bayar', 'public');
+                ->store('bukti_bayar', 'public');
         }
 
         $pembayaran->update($data);
 
-        return redirect()->route('pembayaran.index');
+        return redirect()->route('pembayaran.index')
+            ->with('success', 'Data pembayaran berhasil diperbarui');
     }
 
     public function destroy($id)
@@ -112,6 +110,7 @@ class PembayaranController extends Controller
 
         $pembayaran->delete();
 
-        return redirect()->route('pembayaran.index');
+        return redirect()->route('pembayaran.index')
+            ->with('success', 'Data pembayaran berhasil dihapus');
     }
 }
