@@ -35,6 +35,7 @@ class PenyewaController extends Controller
         return view('pages.penyewa.index', compact('penyewas'));
     }
 
+
     public function create()
     {
         $kamars = Kamar::where('status', 'Kosong')->get();

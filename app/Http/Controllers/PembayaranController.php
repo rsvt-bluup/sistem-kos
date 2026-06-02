@@ -54,7 +54,6 @@ class PembayaranController extends Controller
             'id_kamar' => 'required',
             'tanggal_bayar' => 'required',
             'jumlah_bayar' => 'required|numeric',
-            'bulan' => 'required|date_format:Y-m',
             'status' => 'required',
             'bukti_bayar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);

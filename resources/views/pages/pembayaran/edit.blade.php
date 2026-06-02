@@ -58,8 +58,22 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label class="form-label fw-semibold">Bulan / Tahun</label>
+                    @php
+                        $bulanValue = old('bulan');
+                        if (!$bulanValue && $pembayaran->bulan) {
+                            $months = [
+                                'Januari' => '01', 'Februari' => '02', 'Maret' => '03', 'April' => '04',
+                                'Mei' => '05', 'Juni' => '06', 'Juli' => '07', 'Agustus' => '08',
+                                'September' => '09', 'Oktober' => '10', 'November' => '11', 'Desember' => '12',
+                            ];
+                            $parts = explode(' ', $pembayaran->bulan);
+                            if (count($parts) === 2 && isset($months[$parts[0]])) {
+                                $bulanValue = $parts[1] . '-' . $months[$parts[0]];
+                            }
+                        }
+                    @endphp
                     <input type="month" class="form-control" name="bulan"
-                           value="{{ old('bulan', \Carbon\Carbon::createFromFormat('F Y', $pembayaran->bulan)->format('Y-m')) }}" required>
+                           value="{{ $bulanValue ?? '' }}" required>
                 </div>
 
                 <div class="col-md-6 mb-3">

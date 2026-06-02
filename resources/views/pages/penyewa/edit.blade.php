@@ -41,8 +41,22 @@
 
             <div class="mb-3">
                 <label for="bulan" class="form-label fw-semibold">Bulan Pembayaran Terakhir</label>
+                @php
+                    $bulanValue = old('bulan');
+                    if (!$bulanValue && optional($penyewa->pembayaranTerakhir)->bulan) {
+                        $months = [
+                            'Januari' => '01', 'Februari' => '02', 'Maret' => '03', 'April' => '04',
+                            'Mei' => '05', 'Juni' => '06', 'Juli' => '07', 'Agustus' => '08',
+                            'September' => '09', 'Oktober' => '10', 'November' => '11', 'Desember' => '12',
+                        ];
+                        $parts = explode(' ', optional($penyewa->pembayaranTerakhir)->bulan);
+                        if (count($parts) === 2 && isset($months[$parts[0]])) {
+                            $bulanValue = $parts[1] . '-' . $months[$parts[0]];
+                        }
+                    }
+                @endphp
                 <input type="month" class="form-control" id="bulan" name="bulan"
-                       value="{{ old('bulan', optional($penyewa->pembayaranTerakhir)->bulan ? \Carbon\Carbon::createFromFormat('F Y', $penyewa->pembayaranTerakhir->bulan)->format('Y-m') : '') }}">
+                       value="{{ $bulanValue ?? '' }}">
                 <div class="form-text">Biarkan kosong jika tidak ingin mengubah bulan pembayaran terakhir.</div>
             </div>
 
