@@ -7,9 +7,21 @@ use Illuminate\Http\Request;
 
 class KamarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $kamars = Kamar::latest()->get();
+        $search = $request->query('search');
+
+        $kamars = Kamar::latest();
+
+        if ($search) {
+            $kamars->where(function ($query) use ($search) {
+                $query->where('nomor_kamar', 'like', "%{$search}%")
+                    ->orWhere('tipe', 'like', "%{$search}%")
+                    ->orWhere('status', 'like', "%{$search}%");
+            });
+        }
+
+        $kamars = $kamars->paginate(10)->withQueryString();
 
         return view('pages.kamar.index', compact('kamars'));
     }
@@ -71,6 +83,17 @@ class KamarController extends Controller
         $kamar = Kamar::findOrFail($id_kamar);
 
         $kamar->delete();
+
+        return redirect()->route('kamar.index');
+    }
+
+    public function bulkDestroy(Request $request)
+    {
+        $ids = array_filter(explode(',', $request->ids));
+
+        if (!empty($ids)) {
+            Kamar::whereIn('id_kamar', $ids)->delete();
+        }
 
         return redirect()->route('kamar.index');
     }

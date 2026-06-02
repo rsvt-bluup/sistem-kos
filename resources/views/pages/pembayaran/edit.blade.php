@@ -58,8 +58,8 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label class="form-label fw-semibold">Bulan / Tahun</label>
-                    <input type="text" class="form-control" name="bulan"
-                           value="{{ $pembayaran->bulan }}" required>
+                    <input type="month" class="form-control" name="bulan"
+                           value="{{ old('bulan', \Carbon\Carbon::createFromFormat('F Y', $pembayaran->bulan)->format('Y-m')) }}" required>
                 </div>
 
                 <div class="col-md-6 mb-3">

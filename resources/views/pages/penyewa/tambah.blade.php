@@ -70,6 +70,11 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Bulan Pembayaran Pertama</label>
+                    <input type="month" name="bulan" class="form-control" value="{{ old('bulan', date('Y-m')) }}">
+                    <div class="form-text">Pilih bulan yang akan dicatat untuk pembayaran pertama.</div>
+                </div>
                 <div class="mb-4">
                     <label class="form-label">Foto / Scan KTP (Max 2MB)</label>
                     <input type="file" name="ktp" class="form-control" accept="image/*" required>

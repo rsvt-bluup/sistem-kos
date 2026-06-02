@@ -37,6 +37,7 @@ Route::middleware('admin')->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::post('kamar/bulk-delete', [KamarController::class, 'bulkDestroy'])->name('kamar.bulkDestroy');
     Route::resource('kamar', KamarController::class);
 
     /*
@@ -45,6 +46,7 @@ Route::middleware('admin')->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::post('penyewa/bulk-delete', [PenyewaController::class, 'bulkDestroy'])->name('penyewa.bulkDestroy');
     Route::resource('penyewa', PenyewaController::class);
 
     /*
@@ -53,6 +55,7 @@ Route::middleware('admin')->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::post('pembayaran/bulk-delete', [PembayaranController::class, 'bulkDestroy'])->name('pembayaran.bulkDestroy');
     Route::resource('pembayaran', PembayaranController::class);
 
     /*

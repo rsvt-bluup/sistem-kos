@@ -39,10 +39,17 @@
                 </select>
             </div>
 
-            <div class="mb-4">
-    <label class="form-label fw-semibold d-block">Dokumen KTP</label>
+            <div class="mb-3">
+                <label for="bulan" class="form-label fw-semibold">Bulan Pembayaran Terakhir</label>
+                <input type="month" class="form-control" id="bulan" name="bulan"
+                       value="{{ old('bulan', optional($penyewa->pembayaranTerakhir)->bulan ? \Carbon\Carbon::createFromFormat('F Y', $penyewa->pembayaranTerakhir->bulan)->format('Y-m') : '') }}">
+                <div class="form-text">Biarkan kosong jika tidak ingin mengubah bulan pembayaran terakhir.</div>
+            </div>
 
-    @if($penyewa->ktp)
+            <div class="mb-4">
+                <label class="form-label fw-semibold d-block">Dokumen KTP</label>
+
+                @if($penyewa->ktp)
 
     <div class="card border-0 shadow-sm mb-3" style="max-width: 550px;">
         <div class="card-body">

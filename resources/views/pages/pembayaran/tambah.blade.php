@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Bulan Pembayaran</label>
-                        <input type="text" name="bulan" class="form-control" placeholder="Contoh: Mei 2026" required>
+                        <input type="month" name="bulan" class="form-control" value="{{ old('bulan', date('Y-m')) }}" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Tanggal Bayar</label>
